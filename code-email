@@ -1,0 +1,23 @@
+from email.message import EmailMessage
+import smtplib
+sender_mail="ajithkumaraji9047@gmail.com"
+sender_password="password"
+receiver_email="bhuvaneswari@newgendigital.com"
+cc=("ajithkumar@newgendigital.com","star.ajithkumar.s1997@gmail.com")
+subject="checking python automated"
+body="Hi, this is for  testing of python scripted mail , Dont reply"
+
+em=EmailMessage()
+em['From']=sender_mail
+em['To']=receiver_email
+em["cc"]=cc
+em["Subject"]=subject
+em.set_content(body)
+
+
+server=smtplib.SMTP('smtp.gmail.com',587)
+server.starttls()
+server.login("ajithkumaraji9047@gmail.com","xvchkgfgvhwximln")
+server.sendmail(sender_mail,receiver_email,em.as_string())
+print("mail send")
+//xvchkgfgvhwximln
